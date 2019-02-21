@@ -1,0 +1,16 @@
+use anaxdb; 
+
+SET NAMES UTF8MB4;
+
+DROP TABLE IF EXISTS `userAnax`;
+
+CREATE TABLE `userAnax` (
+	`id` INT  AUTO_INCREMENT PRIMARY KEY, 
+    `acronym` VARCHAR(80) UNIQUE NOT NULL,
+    `password` VARCHAR(255) UNIQUE NOT NULL,
+    `create` DATETIME,
+    `update` DATETIME,
+    `delete` DATETIME,
+    `active`DATETIME
+) ENGINE INNODB CHARACTER SET UTF8MB4 COLLATE UTF8MB4_swedish_ci;
+
