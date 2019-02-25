@@ -5,7 +5,7 @@
 This is how we install the module. First off you go to packargist to download
 the module via composer json.
 
-[Packardgist link](https://packagist.org/packages/samax/stackoverflow-mod)
+[Packagist link](https://packagist.org/packages/samax/stackoverflow-mod)
 
 #### composer.
 
