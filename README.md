@@ -13,7 +13,7 @@ Add this to you composer file. "composer require samax/stackoverflow-mod"
 
 Example
 
-````json
+```json
 {
   "name": "anax/noname",
   "description": "A me page for the ramverk1 course.",
@@ -47,4 +47,7 @@ This is a one liner in the termnial that you might have to change depending
 what ur folder and so on is called.
 
 bash vendor/samax/stackoverflow-mod/.anax/scaffold/postprocess.d/stackoverflow-mod.bash
-````
+
+```
+
+```
