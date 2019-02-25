@@ -46,8 +46,6 @@ packardgist.
 This is a one liner in the termnial that you might have to change depending
 what ur folder and so on is called.
 
+```code
 bash vendor/samax/stackoverflow-mod/.anax/scaffold/postprocess.d/stackoverflow-mod.bash
-
-```
-
 ```
