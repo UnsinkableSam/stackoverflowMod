@@ -14,14 +14,14 @@ $filters = ["markdown"];
         <!--
   This is where we print out the question information for the thread topic.
   -->
-
+        <h1>HELLO DEAR WORLD</h1>
         <?php 
         $filteredQAuthor = $filter->parse("Author: " .  $question[0]->author, $filters); 
         $filteredQTitle = $filter->parse("Title: " .  $question[0]->title, $filters); 
         print_r("<h2> " . $filteredQAuthor->text  . "</h2>" ); ?>
         <h3> <?php print_r($filteredQTitle->text) ; ?> </h3>
         <?php print_r( $question[0]->text); ?>
-
+        <a href="<?php url("Downvote") ?>"></a>
     </div>
 
 

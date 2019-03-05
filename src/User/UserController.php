@@ -125,7 +125,7 @@ class UserController implements ContainerInjectableInterface
         $userPage = new UserPage($this->di);
         $userPage->check();
         $res = $userPage->userInfo();
-
+        
 
         if ($res) {
           $avatar = $userPage->get_gravatar($res[0]->email);
@@ -134,6 +134,7 @@ class UserController implements ContainerInjectableInterface
               "avatar" => $avatar,
               "content" => $userPage->getHTML(),
               "email" => $res[0]->email,
+        
           ]);
         }
 
@@ -151,5 +152,10 @@ class UserController implements ContainerInjectableInterface
         ]);
     }
 
+    public function DownvoteAction()
+    {
+        return "hello";
+    }
 
+    
 }

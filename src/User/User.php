@@ -29,8 +29,9 @@ class User extends ActiveRecordModel implements ContainerInjectableInterface
     public $updated;
     public $deleted;
     public $active;
+    public $Points;
 
-
+    
     /**
      * Set the password.
      *
@@ -90,4 +91,15 @@ class User extends ActiveRecordModel implements ContainerInjectableInterface
       //    ->execute($this->email, [$this->email, $this->password])
       //    ->fetch();
     }
+
+
+
+
+    public function DownVote($email) {
+      $this->findAllWhere("email", $email);
+      $this->Points + 1;
+      $this->save();
+      
+    }
+  
 }

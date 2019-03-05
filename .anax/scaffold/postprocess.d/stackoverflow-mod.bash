@@ -10,7 +10,7 @@ rsync -av vendor/samax/stackoverflow-mod/config ./
 rsync -av vendor/samax/stackoverflow-mod/data ./
 rsync -av vendor/samax/stackoverflow-mod/view ./
 rsync -av vendor/samax/stackoverflow-mod/src ./
-
+rsync -av vendor/samax/stackoverflow-mod/theme ./
 
 
 
