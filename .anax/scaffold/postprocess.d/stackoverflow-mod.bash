@@ -54,7 +54,7 @@ chmod 777 data
 #
 # Integrate the REM server onto an existing anax installation.
 #
-
+#v1.6.7
 # Copy the configuration files
 rsync -av vendor/samax/stackoverflow-mod/config ./
 rsync -av vendor/samax/stackoverflow-mod/data ./
