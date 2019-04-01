@@ -24,6 +24,7 @@ class Comments extends ActiveRecordModel
     public $id;
     public $author;
     public $comment;
+    public $points;
 
 
     public function userInfo($id = null, $di)
@@ -32,6 +33,19 @@ class Comments extends ActiveRecordModel
         $this->setDb($di->get("dbqb"));
         $res = $this->findAll();
 
+        // if (!$res) {
+        //    $res = "Not logged in as a user";
+        // }
+        return $res;
+    }
+
+
+    public function points($id = null, $di)
+    {
+
+        $this->setDb($di->get("dbqb"));
+        $res = $this->findAllWhere("id = ?", $id);
+        $this->points += 1;
         // if (!$res) {
         //    $res = "Not logged in as a user";
         // }

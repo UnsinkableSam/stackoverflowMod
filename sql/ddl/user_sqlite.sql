@@ -15,6 +15,6 @@ CREATE TABLE User (
     "created" TIMESTAMP,
     "updated" DATETIME,
     "deleted" DATETIME,
-    "Points" INTEGER,
-    "active" DATETIME
+    "active" DATETIME,
+    "points" INTEGER
 );

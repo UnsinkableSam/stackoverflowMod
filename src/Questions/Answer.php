@@ -24,6 +24,7 @@ class Answer extends ActiveRecordModel
     public $id;
     public $author;
     public $text;
+    public $points;
 
 
     public function userInfo($id = null, $di)

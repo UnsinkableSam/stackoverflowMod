@@ -13,5 +13,6 @@ CREATE TABLE Comments (
     "author" TEXT NOT NULL,
     "comment" TEXT NOT NULL,
     "threadId" TEXT NOT NULL,
+    "points" INTEGER,
     "answerId" TEXT NOT NULL
 );

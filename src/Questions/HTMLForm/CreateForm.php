@@ -60,7 +60,7 @@ class CreateForm extends FormModel
                 "submit" => [
                     "type" => "submit",
                     "value" => "Create item",
-                    "callback" => [$this, "testPrint"]
+                    "callback" => [$this, "callbackSubmit"]
                 ],
             ]
         );
@@ -81,7 +81,7 @@ class CreateForm extends FormModel
         // $filter = new TextFilter();
         // $filters = ["shortcode", "markdown", "clickable", "bbcode"];
         $questions = new Questions();
-
+        echo "hello";
         $this->form->addOutput($this->di->get("response"));
         $questions->setDb($this->di->get("dbqb"));
         

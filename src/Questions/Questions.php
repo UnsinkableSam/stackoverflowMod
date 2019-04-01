@@ -28,6 +28,7 @@ class Questions extends ActiveRecordModel
     public $title;
     public $author;
     public $text;
+    public $points;
 
 
 

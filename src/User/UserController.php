@@ -7,6 +7,7 @@ use Anax\Commons\ContainerInjectableTrait;
 use Anax\User\HTMLForm\UserLoginForm;
 use Anax\User\HTMLForm\CreateUserForm;
 use Anax\User\HTMLForm\UserPage;
+use Anax\User\User;
 
 // use Anax\Route\Exception\ForbiddenException;
 // use Anax\Route\Exception\NotFoundException;
@@ -129,11 +130,16 @@ class UserController implements ContainerInjectableInterface
 
         if ($res) {
           $avatar = $userPage->get_gravatar($res[0]->email);
+          $user = new User($this->di);
+
+          $totalPoints = $user->totalPoints($res[0]->email, $this->di);
           $page->add("anax/v2/user/userpage", [
               "res" => $res,
               "avatar" => $avatar,
               "content" => $userPage->getHTML(),
               "email" => $res[0]->email,
+              "totalPoints" => $totalPoints,
+
         
           ]);
         }
@@ -152,10 +158,7 @@ class UserController implements ContainerInjectableInterface
         ]);
     }
 
-    public function DownvoteAction()
-    {
-        return "hello";
-    }
+   
 
     
 }

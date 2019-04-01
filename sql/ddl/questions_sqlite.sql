@@ -13,5 +13,6 @@ CREATE TABLE Questions (
     "title" TEXT NOT NULL,
     "author" TEXT NOT NULL,
     "tags" TEXT NOT NULL,
+    "points" INTEGER,
     "text" TEXT NOT NULL
 );
