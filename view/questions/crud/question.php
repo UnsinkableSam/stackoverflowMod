@@ -30,7 +30,7 @@ $di->get("session")->set("VoteAction", 1);
         ?>
 
         <h3> <?php print_r($filteredQTitle->text) ; ?> </h3>
-        <?php $voteForm = new voteForm($this->di, $question[0]->author, $question[0]->id);
+        <?php $voteForm = new voteForm($this->di, $question[0]->author, $question[0]->id); 
           print_r($voteForm->getHTML()); ?>
         <?php print_r( $question[0]->text); ?>
         <?php 

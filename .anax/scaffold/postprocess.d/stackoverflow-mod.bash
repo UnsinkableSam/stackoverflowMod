@@ -4,7 +4,7 @@
 #
 # Integrate the REM server onto an existing anax installation.
 #
-
+#this is a new file.
 # Copy the configuration files
 rsync -av vendor/samax/stackoverflow-mod/config ./
 rsync -av vendor/samax/stackoverflow-mod/data ./
