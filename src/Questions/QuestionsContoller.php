@@ -54,7 +54,6 @@ class QuestionsContoller implements ContainerInjectableInterface
    */
   public function indexActionGet($search = null) : object
   {
-      echo "hello";
       $page = $this->di->get("page");
       $questions = new Questions();
       $questions->setDb($this->di->get("dbqb"));

@@ -27,7 +27,7 @@ class CreateAnswer extends FormModel
         $this->form->create(
             [
                 "id" => __CLASS__,
-                "legend" => "Details of the Question",
+                "legend" => "Answer",
             ],
             [
 
@@ -44,7 +44,7 @@ class CreateAnswer extends FormModel
                     "validation" => ["not_empty"],
                 ],
 
-                "text" => [
+                "answer" => [
                     "type" => "textarea",
                     "validation" => ["not_empty"],
                 ],
@@ -77,8 +77,9 @@ class CreateAnswer extends FormModel
         $this->di->session->set("answerId", $this->form->value("id"));
         $answer->setDb($this->di->get("dbqb"));
         $answer->author = $this->form->value("author");
-        $answer->text = $this->form->value("text");
+        $answer->text = $this->form->value("answer");
         $answer->questionID = $this->form->value("questionID");
+        $answer->points = 1;
         $answer->save();
         $this->form->addOutput("Answer.");
         return true;

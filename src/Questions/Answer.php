@@ -53,5 +53,14 @@ class Answer extends ActiveRecordModel
         return $res;
     }
 
+    public function userAnswers($username = null, $di)
+    {
+
+        $this->setDb($di->get("dbqb"));
+        $res = $this->findAllWhere("author = ?", $username);
+
+        return $res;
+    }
+
 
 }

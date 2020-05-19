@@ -8,6 +8,9 @@ use Anax\User\HTMLForm\UserLoginForm;
 use Anax\User\HTMLForm\CreateUserForm;
 use Anax\User\HTMLForm\UserPage;
 use Anax\User\User;
+use Anax\Questions\Questions;
+use Anax\Questions\Answer;
+use Anax\Questions\Comments;
 
 // use Anax\Route\Exception\ForbiddenException;
 // use Anax\Route\Exception\NotFoundException;
@@ -131,7 +134,30 @@ class UserController implements ContainerInjectableInterface
         if ($res) {
           $avatar = $userPage->get_gravatar($res[0]->email);
           $user = new User($this->di);
+          $questions = new Questions($this->di); 
+          $comments = new Comments($this->di);
+          $answers = new Answer($this->di);
+          
+          $userAnswers = $answers->userAnswers($res[0]->email, $this->di);
+          $userComments = $comments->userComments($res[0]->email, $this->di);
+          $userQuestions = $questions->indexUser($res[0]->email, $this->di);
 
+          for ($i=0; $i < count($userComments) ; $i++) { 
+            $userComments[$i]->questionTitle = $questions->userInfo($userComments[$i]->threadId, $this->di);
+          }
+
+          for ($i=0; $i < count($userAnswers) ; $i++) { 
+            $userAnswers[$i]->questionTitle = $questions->userInfo($userAnswers[$i]->questionID, $this->di);
+          }
+
+          
+          $answeresOfQuestion = [];
+          for ($i=0; $i < count($userQuestions); $i++) { 
+                $answerQ = $user->questionAnswered($userQuestions[$i]->id, $this->di);
+                array_push($answeresOfQuestion,  $answerQ);
+
+          }
+          
           $totalPoints = $user->totalPoints($res[0]->email, $this->di);
           $page->add("anax/v2/user/userpage", [
               "res" => $res,
@@ -139,7 +165,10 @@ class UserController implements ContainerInjectableInterface
               "content" => $userPage->getHTML(),
               "email" => $res[0]->email,
               "totalPoints" => $totalPoints,
-
+              "questions" => $userQuestions,
+              "comments" => $userComments,
+              "answeresOfQuestion" => $answeresOfQuestion,
+              "answers" => $userAnswers
         
           ]);
         }

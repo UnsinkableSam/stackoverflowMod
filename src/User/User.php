@@ -9,6 +9,7 @@ use Anax\DatabaseActiveRecord\ActiveRecordModel;
 use Anax\Questions\Answer;
 use Anax\Questions\Comments;
 use Anax\Questions\Questions;
+
 /**
  * Example of FormModel implementation.
  */
@@ -143,6 +144,25 @@ class User extends ActiveRecordModel implements ContainerInjectableInterface
         $this->save();
       }
       
+    }
+
+    public function questionAnswered ($id, $di) {
+
+      // $answersObj = new Answer();
+      // $answersObj->setDb($di->get("dbqb"));
+      // $answersObj->db->connect();
+      // $answers = $answersObj->questionAnswers(0);
+      $answers = new Answer();
+      $answers->setDb($di->get("dbqb"));
+      $answers->db->connect();
+      $data = $answers->findAllWhere("questionID = ?", $id );
+
+      if (count($data) > 0) {
+        return "Answered";
+      }
+      return "No answer";
+
+     
     }
   
 }
